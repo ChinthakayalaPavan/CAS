@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityHall App Studio (CAS)</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f8fafc;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #0f172a;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+            .logo span {
+                color: #38bdf8;
+            }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+            nav ul li {
+                margin-left: 25px;
+            }
+
+                nav ul li a {
+                    text-decoration: none;
+                    color: white;
+                    font-weight: 500;
+                    transition: .3s;
+                }
+
+                    nav ul li a:hover {
+                        color: #38bdf8;
+                    }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg,#0f172a,#1e293b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 100px 20px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #38bdf8;
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+            .btn:hover {
+                background: #0ea5e9;
+                transform: translateY(-3px);
+            }
+
+        /* Sections */
+        section {
+            padding: 90px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+            .section-title h2 {
+                font-size: 38px;
+                color: #0f172a;
+            }
+
+            .section-title p {
+                color: #64748b;
+                margin-top: 10px;
+            }
+
+        /* About */
+        .about-content {
+            text-align: center;
+            max-width: 900px;
+            margin: auto;
+            line-height: 1.9;
+            color: #555;
+        }
+
+        /* Services */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: .3s;
+        }
+
+            .service-card:hover {
+                transform: translateY(-8px);
+            }
+
+            .service-card h3 {
+                margin-bottom: 15px;
+                color: #0f172a;
+            }
+
+        /* Projects */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: .3s;
+        }
+
+            .project-card:hover {
+                transform: translateY(-8px);
+            }
+
+        .project-image {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eef2ff;
+        }
+
+            .project-image img {
+                max-width: 180px;
+                max-height: 180px;
+            }
+
+        .project-content {
+            padding: 25px;
+        }
+
+            .project-content h3 {
+                margin-bottom: 10px;
+            }
+
+            .project-content p {
+                color: #666;
+                margin-bottom: 15px;
+            }
+
+        .project-btn {
+            display: inline-block;
+            background: #0f172a;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+            .project-btn:hover {
+                background: #1e293b;
+            }
+
+        /* Contact */
+        .contact-box {
+            background: white;
+            max-width: 700px;
+            margin: auto;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+            .contact-box h3 {
+                margin-bottom: 15px;
+            }
+
+            .contact-box p {
+                margin-bottom: 10px;
+            }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media(max-width:768px) {
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+                nav ul {
+                    margin-top: 15px;
+                }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">CAS <span>Studio</span></div>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>CityHall App Studio (CAS)</h1>
+
+            <p>
+                Building innovative mobile applications and digital solutions that transform ideas into successful products.
+                We are a startup focused on Android app development, game development, UI/UX design, and scalable digital experiences.
+            </p>
+
+            <a href="#projects" class="btn">View Our Projects</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Who We Are</p>
+            </div>
+
+            <div class="about-content">
+                <p>
+                    <strong>CityHall App Studio (CAS)</strong> is an emerging startup dedicated to creating high-quality mobile applications and engaging digital products.
+                    Our mission is to develop innovative, user-friendly, and scalable solutions that provide exceptional experiences to users worldwide.
+                </p>
+
+                <br>
+
+                <p>
+                    From casual gaming applications to business-focused mobile solutions, our team combines creativity, technology, and modern development practices to deliver products that stand out in today's competitive market.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" style="background:#f1f5f9;">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>What We Offer</p>
+            </div>
+
+            <div class="services">
+
+                <div class="service-card">
+                    <h3>Android App Development</h3>
+                    <p>Custom Android applications designed for performance, scalability, and excellent user experience.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Game Development</h3>
+                    <p>Development of engaging puzzle, board, and casual mobile games with modern gameplay experiences.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>UI / UX Design</h3>
+                    <p>Modern, intuitive, and visually appealing user interfaces tailored to your audience.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>App Maintenance</h3>
+                    <p>Continuous updates, optimization, bug fixing, and support to keep applications running smoothly.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Our Projects</h2>
+                <p>Featured Applications Developed by CAS</p>
+            </div>
+
+            <div class="projects">
+
+                <!-- Bottle Puzzle Arena -->
+                <div class="project-card">
+
+                    <div class="project-image">
+                        <img src="logo1.png" alt="Bottle Puzzle Arena">
+                    </div>
+
+                    <div class="project-content">
+                        <h3>Bottle Puzzle Arena</h3>
+
+                        <p>
+                            A fun and addictive color sorting puzzle game designed to challenge logical thinking and problem-solving skills.
+                        </p>
+
+                        <a href="https://play.google.com/store/apps/details?id=com.cityhall.matchingbottle"
+                           target="_blank"
+                           class="project-btn">
+                            View on Play Store
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Royal Bingo Play -->
+                <div class="project-card">
+
+                    <div class="project-image">
+                        <img src="logo2.png" alt="Royal Bingo Play">
+                    </div>
+
+                    <div class="project-content">
+                        <h3>Royal Bingo Play</h3>
+
+                        <p>
+                            An exciting multiplayer Bingo experience featuring competitive gameplay, rewards, tournaments, and social interaction.
+                        </p>
+
+                        <a href="https://play.google.com/store/apps/details?id=com.bingo.bingokingapp"
+                           target="_blank"
+                           class="project-btn">
+                            View on Play Store
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="background:#f1f5f9;">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Let's Build Something Amazing Together</p>
+            </div>
+
+            <div class="contact-box">
+
+                <h3>CityHall App Studio (CAS)</h3>
+
+                <p>Email:</p>
+
+                <p>
+                    <a href="mailto:pavanchintakayala1234@gmail.com">
+                        pavanchintakayala1234@gmail.com
+                    </a>
+                </p>
+
+                <br>
+
+                <p>
+                    Interested in mobile app development, game development, or digital solutions?
+                    Reach out to us and let's discuss your next project.
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        © 2026 CityHall App Studio (CAS). All Rights Reserved.
+    </footer>
+
+</body>
+</html>

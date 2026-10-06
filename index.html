@@ -198,19 +198,17 @@ nav ul li a:hover::after{
 }
 
 .profile-pic{
-    width:180px;
-    height:180px;
-    border-radius:50%;
+    width:220px;
+    height:auto;
+    max-height:280px;
     object-fit:contain;
     object-position:center;
-    background:#0b1020;
+    border-radius:12px;
     border:2px solid rgba(56,189,248,.9);
     margin-bottom:25px;
-
     box-shadow:
         0 0 0 8px rgba(56,189,248,.04),
         0 0 55px rgba(56,189,248,.3);
-
     animation:profilePulse 4s ease-in-out infinite;
 }
 
@@ -789,13 +787,14 @@ footer{
         min-height:100vh;
     }
 
-    .profile-pic{
-        width:150px;
-        height:150px;
-        object-fit:contain;
-        object-position:center;
-        margin-bottom:25px;
-    }
+  .profile-pic{
+    width:180px;
+    height:auto;
+    max-height:230px;
+    object-fit:contain;
+    border-radius:12px;
+    margin-bottom:25px;
+}
 
     section{
         padding:72px 16px;
